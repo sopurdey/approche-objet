@@ -41,8 +41,8 @@ public class Personne {
 	 * @param nom
 	 * @return String nom modifié
 	 */
-	public String setNom(String nom) {
-		return this.nom = nom;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	
 	/**
@@ -50,8 +50,8 @@ public class Personne {
 	 * @param prenom
 	 * @return String prénom modifié
 	 */
-	public String setPrenom(String prenom) {
-		return this.prenom = prenom;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 	
 	/**
@@ -59,8 +59,8 @@ public class Personne {
 	 * @param adresse
 	 * @return AdressePostale adresse modifiée
 	 */
-	public AdressePostale setAdresse(AdressePostale adresse) {
-		return this.adresse = adresse;
+	public void setAdresse(AdressePostale adresse) {
+		this.adresse = adresse;
 	}
 	
 	/**
