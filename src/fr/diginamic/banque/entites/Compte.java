@@ -12,7 +12,7 @@ public class Compte {
 	
 	@Override
 	public String toString() {
-		return "Numéro de compte : " + numeroCompte + ", Solde de compte : " + soldeCompte;
+		return "Numéro de compte : " + numeroCompte + " - Solde : " + soldeCompte + " €";
 	}
 
 	public int getNumeroCompte() {
