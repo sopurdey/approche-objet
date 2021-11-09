@@ -1,4 +1,4 @@
-package fr.dignamic.entites;
+package fr.diginamic.entites;
 
 public class Cercle {
 	private double rayon;
@@ -13,8 +13,7 @@ public class Cercle {
 	 * @return double périmètre
 	 */
 	public double calculerPerimetre() {
-		double p;
-		return p = 3.14 * 2 * rayon;
+		return 3.14 * 2 * rayon;
 	}
 	
 	/**
@@ -22,8 +21,7 @@ public class Cercle {
 	 * @return double surface
 	 */
 	public double calculerSurface() {
-		double s;
-		return s = 3.14 * (rayon * rayon);
+		return  3.14 * (rayon * rayon);
 	}
 	
 	@Override

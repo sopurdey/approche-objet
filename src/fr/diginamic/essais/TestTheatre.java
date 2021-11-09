@@ -1,6 +1,6 @@
 package fr.diginamic.essais;
 
-import fr.dignamic.entites.Theatre;
+import fr.diginamic.entites.Theatre;
 
 public class TestTheatre {
 
