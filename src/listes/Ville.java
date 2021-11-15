@@ -1,29 +1,37 @@
 package listes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Ville {
-
-	public Ville(String string, int i) {
-		
+	@Override
+	public String toString() {
+		return "Ville [nom=" + nom + ", nbHabitants=" + nbHabitants + "]";
 	}
 
-	public static void main(String[] args) {
-		String nom;
-		long nbHabitants;
-		
-		ArrayList<Ville> villes = new ArrayList<>();
-		villes.add(new Ville("Nice", 343_000));
-		villes.add(new Ville("Carcassonne", 47_800));
-		villes.add(new Ville("Narbonne", 53_400));
-		villes.add(new Ville("Lyon", 484_000));
-		villes.add(new Ville("Foix", 9_700));
-		villes.add(new Ville("Pau", 77_200));
-		villes.add(new Ville("Marseille", 850_700));
-		villes.add(new Ville("Tarbes", 40_600));
-		
+	String nom;
+	int nbHabitants;
 
+	public String getNom() {
+		return nom;
 	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public int getNbHabitants() {
+		return nbHabitants;
+	}
+
+	public void setNbHabitants(int nbHabitants) {
+		this.nbHabitants = nbHabitants;
+	}
+
+	public Ville(String nom, int nbHabitants) {
+		this.nom = nom;
+		this.nbHabitants = nbHabitants;
+	}
+
+
 
 }
