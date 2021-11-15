@@ -5,10 +5,6 @@ import java.util.Arrays;
 public class Maison {
 	protected Piece[] pieces;
 	
-	public Maison() {
-		
-	}
-	
 	public Maison(Piece[] pieces) {
 		this.pieces = pieces;
 	}

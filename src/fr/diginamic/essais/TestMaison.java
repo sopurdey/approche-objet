@@ -1,5 +1,7 @@
 package fr.diginamic.essais;
 
+import java.util.Random;
+
 import fr.diginamic.maison.Chambre;
 import fr.diginamic.maison.Cuisine;
 import fr.diginamic.maison.Maison;
@@ -53,6 +55,8 @@ public class TestMaison {
 		
 		// Nombre de chambres
 		System.out.println(house.getNbPiecesParTypePiece("Chambre"));
+		System.out.println();
+		System.out.println(new Random().nextInt(19 - 12) + 12);
 	}
 
 }
