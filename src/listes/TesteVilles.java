@@ -1,6 +1,7 @@
 package listes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TesteVilles {
 
@@ -49,6 +50,18 @@ public class TesteVilles {
 		for (Ville v: villes) {
 			System.out.println(v);
 		}
+		
+		System.out.println("======================");
+		
+		ArrayList<Ville> villesTri = new ArrayList<>();
+		villesTri.addAll(villes);
+		
+		// Test Comparable
+		Collections.sort(villesTri);
+		for (Ville v: villesTri) {
+			System.out.println(v);
+		}
+		
 		
 	}
 

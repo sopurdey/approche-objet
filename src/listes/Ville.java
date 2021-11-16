@@ -1,15 +1,23 @@
 package listes;
 
-import java.util.ArrayList;
-
-public class Ville {
+public class Ville implements Comparable<Ville> {
+	String nom;
+	int nbHabitants;
+	
+	public Ville(String nom, int nbHabitants) {
+		this.nom = nom;
+		this.nbHabitants = nbHabitants;
+	}
+	
+	@Override
+	public int compareTo(Ville autre) {
+		return this.nom.compareTo(autre.getNom());
+	}
+	
 	@Override
 	public String toString() {
 		return "Ville [nom=" + nom + ", nbHabitants=" + nbHabitants + "]";
 	}
-
-	String nom;
-	int nbHabitants;
 
 	public String getNom() {
 		return nom;
@@ -26,12 +34,5 @@ public class Ville {
 	public void setNbHabitants(int nbHabitants) {
 		this.nbHabitants = nbHabitants;
 	}
-
-	public Ville(String nom, int nbHabitants) {
-		this.nom = nom;
-		this.nbHabitants = nbHabitants;
-	}
-
-
 
 }
