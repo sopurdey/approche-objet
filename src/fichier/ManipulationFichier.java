@@ -14,21 +14,32 @@ public class ManipulationFichier {
 		Path pathFile = Paths.get("C:/Users/Formation/Downloads/recensement.csv");
 		
 		List<String> lignes = Files.readAllLines(pathFile);
-		lignes.remove(0);
 		
 		List<String> villes = new ArrayList<>();
+
+		String ligneEntete = lignes.get(0);
+		String[] colonnesEntete = ligneEntete.split(";");
+		String ligneEnteteFinale = colonnesEntete[2] + ";" + colonnesEntete[6] + ";" + colonnesEntete[9];
+		villes.add(ligneEnteteFinale);
+		//System.out.println(ligneEnteteFinale);
 		
-		for (String ligne: lignes) {
-			String[] tokens = ligne.split(";");
-			tokens[9] = tokens[9].trim().replaceAll(" ", "");
-			//System.out.println(tokens[9]);
-			for (int i = 0; i < tokens.length; i++) {
-				if (Integer.valueOf(tokens[9]) < 25_000) {
-					System.out.println(tokens[9]);
-				}
+		for (int i = 1; i < lignes.size(); i++) {
+
+			String ligne = lignes.get(i);
+			String[] colonnes = ligne.split(";");
+			
+			int population = Integer.parseInt(colonnes[9].replaceAll(" ", ""));
+			if (population > 25_000) {
+				villes.add(colonnes[2] + ";" + colonnes[6] + ";" + colonnes[9] + ";");
 			}
 		}
 		
+		for (String ville: villes) {
+			System.out.println(ville);
+		}
+		
+		Path pathCible = Paths.get("C:/Users/Formation/Downloads/recensement25000.csv");
+		Files.write(pathCible, villes);
 		
 	}
 
