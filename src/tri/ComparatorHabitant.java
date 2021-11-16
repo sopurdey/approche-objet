@@ -1,4 +1,4 @@
-package listes;
+package tri;
 
 import java.util.Comparator;
 

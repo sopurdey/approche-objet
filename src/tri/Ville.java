@@ -1,12 +1,23 @@
-package listes;
+package tri;
 
-public class Ville {
+public class Ville implements Comparable<Ville> {
 	String nom;
 	int nbHabitants;
 	
 	public Ville(String nom, int nbHabitants) {
 		this.nom = nom;
 		this.nbHabitants = nbHabitants;
+	}
+	
+	@Override
+	public int compareTo(Ville autre) {
+		if (this.nbHabitants > autre.getNbHabitants()) {
+			return 1;
+		} else if (this.nbHabitants < autre.getNbHabitants()) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 	
 	@Override

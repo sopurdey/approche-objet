@@ -51,28 +51,6 @@ public class TesteVilles {
 			System.out.println(v);
 		}
 		
-		System.out.println("======================");
-		
-		ArrayList<Ville> villesTri = new ArrayList<>();
-		villesTri.addAll(villes);
-		
-		// Test Comparable
-		// Collections.sort(villesTri);
-		
-		// Test Comparator nombre d'habitants
-		Collections.sort(villesTri, new ComparatorHabitant());
-		System.out.println("Tri par nb habitants : ");
-		for (Ville v: villesTri) {
-			System.out.println(v);
-		}
-		System.out.println("Tri par nom : ");
-		Collections.sort(villesTri, new ComparatorNom());
-		
-		for (Ville v: villesTri) {
-			System.out.println(v);
-		}
-		
-		
 	}
 
 }
