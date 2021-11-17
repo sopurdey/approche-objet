@@ -29,11 +29,11 @@ public class ManipulationFichier {
 			String[] colonnes = ligne.split(";");
 			
 			int population = Integer.parseInt(colonnes[9].replaceAll(" ", ""));
-			if (population > 25_000) {
+			if (population >= 25_000) {
 				villes.add(colonnes[2] + ";" + colonnes[6] + ";" + colonnes[9] + ";");
 			}
 		}
-		
+
 		for (String ville: villes) {
 			System.out.println(ville);
 		}
