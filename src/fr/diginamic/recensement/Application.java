@@ -14,7 +14,8 @@ import java.util.Set;
 public class Application {
 
 	public static void main(String[] args) throws IOException {
-
+		/* === ETAPE 1 == */
+		
 		// Lecture du fichier
 		Path cheminFichier = Paths.get("C:/Users/Formation/Downloads/recensement.csv");
 
@@ -23,9 +24,6 @@ public class Application {
 
 		// Liste pour stocker toutes les villes
 		ArrayList<Ville> villes = new ArrayList<>();
-
-		// String ligneEntete = lignes.get(0);
-		// String enteteFichier = creerLigne(ligneEntete);
 
 		for (int i = 1; i < lignes.size(); i++) {
 
@@ -50,6 +48,7 @@ public class Application {
 			villes.add(ville);
 		}
 
+		/* === ETAPE 3 == */
 		// Recherchez la ville de Montpellier et affichez toutes les informations la
 		// concernant
 		for (Ville ville : villes) {
@@ -58,6 +57,7 @@ public class Application {
 			}
 		}
 
+		/* === ETAPE 4 == */
 		// Afficher la population de tout le département de l’Hérault
 		int popHerault = 0;
 		for (int i = 0; i < villes.size(); i++) {
@@ -67,6 +67,7 @@ public class Application {
 		}
 		System.out.println("Population de l'Hérault : " + popHerault);
 
+		/* === ETAPE 5 == */
 		// Affichez la plus petite ville du département
 		Ville popVilleMin = villes.get(0);
 		for (int i = 0; i < villes.size(); i++) {
@@ -79,6 +80,7 @@ public class Application {
 
 		System.out.println("=======================");
 
+		/* === ETAPE 6 == */
 		// Affichez les 10 plus grandes villes du département
 		
 		// Trier par population - ordre décroissant
@@ -109,6 +111,17 @@ public class Application {
 			System.out.println(selection.get(i).getNomCommune() + " - " + selection.get(i).getPopTotale());
 		}
 
+		System.out.println("=======================");
+		
+		/* === ETAPE 7 == */
+		// Affichez la population de toute la région Occitanie
+		int popOccitanie = 0;
+		for (Ville ville : villes) {
+			if (ville.getNomRegion().equals("Occitanie")) {
+				popOccitanie += ville.getPopTotale();
+			}
+		}
+		System.out.println("Population de l'Occitanie : " + popOccitanie);
 	}
 
 }

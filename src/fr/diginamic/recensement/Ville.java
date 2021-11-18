@@ -19,6 +19,7 @@ public class Ville {
 		this.popTotale = popTotale;
 	}
 
+	/* === ETAPE 2 == */
 	@Override
 	public String toString() {
 		return "Ville [codeRegion=" + codeRegion + ", nomRegion=" + nomRegion + ", codeDepartement=" + codeDepartement
