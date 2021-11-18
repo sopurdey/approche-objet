@@ -152,26 +152,59 @@ public class Application {
 		for (Ville ville : selectionOccitanie) {
 			// Vérifier si le département est déjà dans la map
 			if (deptPopMap.containsKey(ville.getCodeDepartement())) {
-				
+
 				// Addition de la population de l'instance à la population du département
 				pop = deptPopMap.get(ville.getCodeDepartement()) + ville.getPopTotale();
-				
+
 				// Ajout du nouveau total comme valeur de la clé du département
 				deptPopMap.put(ville.getCodeDepartement(), pop);
 			} else {
 				pop = ville.getPopTotale();
-				
-				// Création de pair clé (département) et valeur (population de l'instance)
+
+				// Création de pair clé (département) et valeur (population)
 				deptPopMap.put(ville.getCodeDepartement(), pop);
 			}
 		}
 
+		// Boucle pour trouver le département avec la plus grande population
 		Map.Entry<String, Integer> maxPop = null;
 		for (Map.Entry<String, Integer> entry : deptPopMap.entrySet()) {
 			if (maxPop == null || entry.getValue().compareTo(maxPop.getValue()) > 0) {
 				maxPop = entry;
 			}
 		}
-		System.out.println(maxPop.getKey() + " est le département le plus peuplé en Occitanie avec " + maxPop.getValue() + " habitants");
+		System.out.println(maxPop.getKey() + " est le département le plus peuplé en Occitanie avec " + maxPop.getValue()
+				+ " habitants");
+
+		/* === ETAPE 8 == */
+		// Affichez les 10 régions les plus peuplées de France
+		HashMap<String, Integer> regionPopMap = new HashMap<>();
+		Integer popRegion = 0;
+		for (Ville ville : villes) {
+			// Vérifier si la région est déjà dans la map
+			if (regionPopMap.containsKey(ville.getNomRegion())) {
+
+				// Addition de la population de l'instance à la population de la région
+				popRegion = regionPopMap.get(ville.getNomRegion()) + ville.getPopTotale();
+
+				// Ajout du nouveau total comme valeur de la clé de la région
+				regionPopMap.put(ville.getNomRegion(), popRegion);
+			} else {
+				popRegion = ville.getPopTotale();
+
+				// Création de pair clé (nom de région) et valeur (population)
+				regionPopMap.put(ville.getNomRegion(), popRegion);
+			}
+		}
+		
+		// Boucle pour trouver la région avec la plus grande population
+		Map.Entry<String, Integer> maxPopRegion = null;
+		for (Map.Entry<String, Integer> entry : regionPopMap.entrySet()) {
+			if (maxPopRegion == null || entry.getValue().compareTo(maxPopRegion.getValue()) > 0) {
+				maxPopRegion = entry;
+			}
+		}
+		System.out.println(maxPopRegion.getKey() + " est la région le plus peuplée avec " + maxPopRegion.getValue()
+				+ " habitants");
 	}
 }
