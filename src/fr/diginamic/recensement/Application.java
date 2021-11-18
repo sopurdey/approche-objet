@@ -9,13 +9,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 public class Application {
 
 	public static void main(String[] args) throws IOException {
 		/* === ETAPE 1 == */
-		
+
 		// Lecture du fichier
 		Path cheminFichier = Paths.get("C:/Users/Formation/Downloads/recensement.csv");
 
@@ -82,37 +82,40 @@ public class Application {
 
 		/* === ETAPE 6 == */
 		// Affichez les 10 plus grandes villes du département
-		
+
 		// Trier par population - ordre décroissant
 		Collections.sort(villes, new ComparatorPopulation());
 
-		// Stocker la séléction des villes du département triée par population (décroissant)
-		ArrayList<Ville> selection = new ArrayList<>();
+		// Stocker la séléction des villes du département triée par population
+		// (décroissant)
+		ArrayList<Ville> selectionHerault = new ArrayList<>();
 		for (Ville ville : villes) {
 			if (ville.getCodeDepartement().equals("34")) {
-				selection.add(ville);
+				selectionHerault.add(ville);
 			}
 		}
-		
+
 		// Afficher les 10 premières villes de la liste
 		System.out.println("10 plus grandes villes de l'Hérault : ");
 		for (int i = 0; i < 10; i++) {
-			System.out.println(selection.get(i).getNomCommune() + " - " + selection.get(i).getPopTotale());
+			System.out.println(i + 1 + ") " + selectionHerault.get(i).getNomCommune() + " - "
+					+ selectionHerault.get(i).getPopTotale());
 		}
-		
+
 		System.out.println("=======================");
 
 		// Affichez les 10 plus petites villes du département
 		System.out.println("10 plus petites villes de l'Hérault : ");
 		// Inverser l'ordre du tri par ordre croissant
-		Collections.reverse(selection);
+		Collections.reverse(selectionHerault);
 		// Afficher les 10 premières villes de la liste
 		for (int i = 0; i < 10; i++) {
-			System.out.println(selection.get(i).getNomCommune() + " - " + selection.get(i).getPopTotale());
+			System.out.println(i + 1 + ") " + selectionHerault.get(i).getNomCommune() + " - "
+					+ selectionHerault.get(i).getPopTotale());
 		}
 
 		System.out.println("=======================");
-		
+
 		/* === ETAPE 7 == */
 		// Affichez la population de toute la région Occitanie
 		int popOccitanie = 0;
@@ -122,6 +125,53 @@ public class Application {
 			}
 		}
 		System.out.println("Population de l'Occitanie : " + popOccitanie);
-	}
 
+		System.out.println("=======================");
+
+		/* === ETAPE 8 == */
+		// Affichez les 10 villes les plus importantes de la région Occitanie
+		ArrayList<Ville> selectionOccitanie = new ArrayList<>();
+		for (Ville ville : villes) {
+			if (ville.getNomRegion().equals("Occitanie")) {
+				selectionOccitanie.add(ville);
+			}
+		}
+
+		System.out.println("Les 10 plus grandes villes de l'Occitanie : ");
+		for (int i = 0; i < 10; i++) {
+			System.out.println(i + 1 + ") " + selectionOccitanie.get(i).getNomCommune() + " - "
+					+ selectionOccitanie.get(i).getPopTotale());
+		}
+
+		System.out.println("=======================");
+
+		// Affichez le département le plus peuplé de la région Occitanie
+		// TODO trouver une solution plus optimisée
+		HashMap<String, Integer> deptPopMap = new HashMap<>();
+		Integer pop = 0;
+		for (Ville ville : selectionOccitanie) {
+			// Vérifier si le département est déjà dans la map
+			if (deptPopMap.containsKey(ville.getCodeDepartement())) {
+				
+				// Addition de la population de l'instance à la population du département
+				pop = deptPopMap.get(ville.getCodeDepartement()) + ville.getPopTotale();
+				
+				// Ajout du nouveau total comme valeur de la clé du département
+				deptPopMap.put(ville.getCodeDepartement(), pop);
+			} else {
+				pop = ville.getPopTotale();
+				
+				// Création de pair clé (département) et valeur (population de l'instance)
+				deptPopMap.put(ville.getCodeDepartement(), pop);
+			}
+		}
+
+		Map.Entry<String, Integer> maxPop = null;
+		for (Map.Entry<String, Integer> entry : deptPopMap.entrySet()) {
+			if (maxPop == null || entry.getValue().compareTo(maxPop.getValue()) > 0) {
+				maxPop = entry;
+			}
+		}
+		System.out.println(maxPop.getKey() + " est le département le plus peuplé en Occitanie avec " + maxPop.getValue() + " habitants");
+	}
 }
