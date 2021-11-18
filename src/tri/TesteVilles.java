@@ -21,7 +21,7 @@ public class TesteVilles {
 		villesTri.addAll(villes);
 		
 		// Test Comparable
-		System.out.println("Tri avec Comparable : ");
+		// System.out.println("Tri avec Comparable : ");
 		// Collections.sort(villesTri);
 		
 		// Test Comparator nombre d'habitants
