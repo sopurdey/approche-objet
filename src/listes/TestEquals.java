@@ -11,16 +11,23 @@ public class TestEquals {
 
 		System.out.println(v1.equals(v2)); // true
 
-		// Faites le test maintenant en utilisant l’opérateur == avec les mêmes attributs.
+		// Faites le test maintenant en utilisant l’opérateur == avec les mêmes
+		// attributs.
 		System.out.println(v1 == v2); // false (pas le même espace mémoire)
-		
+
 		// Vérifiez que la méthode retourne false si vous changez un des attributs.
 		v1.setNom("Montpellier");
 		System.out.println(v1.equals(v2)); // false
 
-		// Faites le test maintenant en utilisant l’opérateur == avec des attributs différents.
+		// Faites le test maintenant en utilisant l’opérateur == avec des attributs
+		// différents.
 		System.out.println(v1 == v2); // false
-		
+
+		// Comment faire pour que la comparaison de 2 villes avec l’opérateur ==
+		// retourne true.
+		Ville vCopie = v1;
+		System.out.println(v1 == vCopie); // true
+
 	}
 
 }
