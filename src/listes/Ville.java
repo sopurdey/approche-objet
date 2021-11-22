@@ -14,6 +14,17 @@ public class Ville {
 		return "Ville [nom=" + nom + ", nbHabitants=" + nbHabitants + "]";
 	}
 
+	// Redéfinissez la méthode equals
+	@Override
+	public boolean equals(Object objet) {
+		if (!(objet instanceof Ville)) {
+			return false;
+		}
+		
+		Ville autre = (Ville) objet;
+		return this.nom.equals(autre.getNom()) && this.nbHabitants == autre.getNbHabitants();
+	}
+	
 	public String getNom() {
 		return nom;
 	}

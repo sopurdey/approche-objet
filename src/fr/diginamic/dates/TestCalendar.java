@@ -23,7 +23,6 @@ public class TestCalendar {
 
 		// Utilisez la classe Calendar, créez une instance de Date à la date du jour.
 		Calendar cal2 = Calendar.getInstance();
-		//cal2.set(2021, 10, 22, 14, 31, 25);
 		
 		Date aujourdhui = cal2.getTime();
 		System.out.println(aujourdhui);
@@ -42,8 +41,7 @@ public class TestCalendar {
 		System.out.println(dateFrancais);
 		
 		// en russe
-		Locale russie = new Locale("Ru", "RU");
-		SimpleDateFormat formateurRu = new SimpleDateFormat("EEEE MMMM YYYY HH:mm:ss", russie);
+		SimpleDateFormat formateurRu = new SimpleDateFormat("EEEE MMMM YYYY HH:mm:ss", new Locale("Ru", "RU"));
 		String dateRusse = formateurRu.format(aujourdhui);
 		System.out.println(dateRusse);
 		
