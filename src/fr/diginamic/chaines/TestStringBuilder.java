@@ -7,21 +7,23 @@ public class TestStringBuilder {
 		StringBuilder builder = new StringBuilder();
 		String text = "";
 
+		// Ajoutez tous les nombres de 1 à 100 000 dans une instance de StringBuilder.
 		long debut = System.currentTimeMillis();
-		// Code à chronométrer
-		for (int i= 0; i< 100000; i++) {
+
+		for (int i= 0; i <= 100000; i++) {
 			builder.append(i);
 		}
 		long fin = System.currentTimeMillis();
-		System.out.println("Temps écoulé en millisecondes 1 :" + (fin - debut));
+		System.out.println("Temps écoulé en millisecondes (StringBuilder) :" + (fin - debut));
 		
+		// Refaites le chronométrage en utilisant cette fois uniquement la classe String et l’opérateur de concaténation +,
 		long debut2 = System.currentTimeMillis();
-		// Code à chronométrer
-		for (int i= 0; i< 100000; i++) {
+
+		for (int i= 0; i <= 100000; i++) {
 			text += i;
 		}
 		long fin2 = System.currentTimeMillis();
-		System.out.println("Temps écoulé en millisecondes 2 :" + (fin2 - debut2));
+		System.out.println("Temps écoulé en millisecondes (concatination) :" + (fin2 - debut2));
 	}
 
 }
